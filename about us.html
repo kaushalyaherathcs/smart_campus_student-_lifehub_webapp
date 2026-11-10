@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — UnityCampus</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+
+    <!-- Google Fonts matching index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="aboutus.css">
+</head>
+
+<body class="dot-matrix-bg">
+
+    <!-- 1. NAVBAR (Matches index.html exactly) -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="study tools.html">Study tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html" class="active">About Us</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. ABOUT MAIN SECTION -->
+    <section class="aboutus-page grid-line-bg">
+        <div class="about-inner">
+
+            <div class="about-header">
+                <span class="meta-tag">— CREATOR & ARCHITECT</span>
+                <h1 class="contact">About Us</h1>
+            </div>
+
+            <div class="contact-row">
+                <!-- Developer Profile Card -->
+                <div class="contact-card">
+                    <div class="profile">
+                        <div class="img-con">
+                            <img src="profile.png" class="img" alt="Developer Profile"
+                                onerror="this.src='https://placehold.co/180x180/18181c/a1a1aa?text=AK'">
+                        </div>
+                    </div>
+
+                    <div class="card-details">
+                        <p class="name">DESIGNER & DEV : ACHINTHA KAUSHALYA</p>
+
+                        <p class="links">Used languages</p>
+                        <div class="link-con">
+                            <div class="icon-back">
+                                <p class="txt">HTML</p>
+                            </div>
+                            <div class="icon-back">
+                                <p class="txt">CSS</p>
+                            </div>
+                            <div class="icon-back">
+                                <p class="txt">JS</p>
+                            </div>
+                            <div class="icon-back">
+                                <p class="txt">VUE.JS</p>
+                            </div>
+                        </div>
+
+                        <p class="social-label">find me on</p>
+                        <div class="social-con">
+                            <a href="#" class="social-circle" aria-label="GitHub">
+                                <img src="github.png" width="16" height="16" alt="GitHub"
+                                    onerror="this.style.display='none'">
+                                <span class="fallback-icon">GH</span>
+                            </a>
+                            <a href="#" class="social-circle" aria-label="LinkedIn">
+                                <img src="linkedin.png" width="16" height="16" alt="LinkedIn"
+                                    onerror="this.style.display='none'">
+                                <span class="fallback-icon">IN</span>
+                            </a>
+                            <a href="#" class="social-circle" aria-label="Telegram">
+                                <img src="telegram.png" width="16" height="16" alt="Telegram"
+                                    onerror="this.style.display='none'">
+                                <span class="fallback-icon">TG</span>
+                            </a>
+                            <a href="#" class="social-circle" aria-label="Instagram">
+                                <img src="instagram.png" width="16" height="16" alt="Instagram"
+                                    onerror="this.style.display='none'">
+                                <span class="fallback-icon">IG</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Message Form Card -->
+                <div class="contact-form" id="contactus">
+                    <p class="form-heading">[ Send a Message ]</p>
+                    <input type="text" placeholder="Your name..." class="contact-input">
+                    <input type="email" placeholder="Your email..." class="contact-input">
+                    <textarea placeholder="Your message..." class="contact-input contact-textarea"></textarea>
+                    <button class="contact-send-btn" onclick="sendContactMessage()">
+                        Send Message →
+                    </button>
+                    <p class="contact-sent-msg" id="contactSentMsg"></p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. FOOTER (Matches index.html exactly) -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="wellness.html">Wellness</a>
+                <a href="study tools.html">Study Tools</a>
+                <a href="about us.html">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="#contactus">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus Inc. All rights reserved.</p>
+            <p>[ DEV Achintha Kaushalya ]</p>
+        </div>
+    </footer>
+
+    <script src="aboutus.js"></script>
+</body>
+
+</html>

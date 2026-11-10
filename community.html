@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community — UnityCampus</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+
+    <!-- Google Fonts: Space Grotesk, JetBrains Mono & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="community.css">
+</head>
+
+<body class="dot-matrix-bg">
+
+    <!-- 1. BRUTALIST NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="study tools.html">Study tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. IMAGE BANNER SECTION -->
+    <div class="com-img"></div>
+
+    <!-- 3. COMMUNITY CONTENT SECTION -->
+    <section class="community-page grid-line-bg">
+        <div class="community-inner">
+
+            <div class="community-header">
+                <span class="community-tag">— NETWORK & DISCUSSIONS</span>
+                <h1 class="community-title">Community</h1>
+                <p class="community-sub">/// connect with fellow students across disciplines</p>
+            </div>
+
+            <!-- Create New Post Form -->
+            <div class="new-post-card">
+                <p class="form-title">[ Share Something ]</p>
+                <div class="input-grid">
+                    <input type="text" id="postAuthor" placeholder="Your name..." class="post-input">
+                    <select id="postCategory" class="post-input post-select">
+                        <option value="General">General</option>
+                        <option value="Study">Study Help</option>
+                        <option value="Events">Events</option>
+                        <option value="Resources">Resources</option>
+                        <option value="Wellness">Wellness</option>
+                    </select>
+                </div>
+                <textarea id="postContent" placeholder="What's on your mind..." class="post-input post-textarea"></textarea>
+                <div class="post-form-row">
+                    <button id="addPostBtn" class="post-btn">Post Discussion →</button>
+                </div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-row">
+                <button class="filter-btn active" onclick="filterPosts('All')">All</button>
+                <button class="filter-btn" onclick="filterPosts('General')">General</button>
+                <button class="filter-btn" onclick="filterPosts('Study')">Study</button>
+                <button class="filter-btn" onclick="filterPosts('Events')">Events</button>
+                <button class="filter-btn" onclick="filterPosts('Resources')">Resources</button>
+                <button class="filter-btn" onclick="filterPosts('Wellness')">Wellness</button>
+            </div>
+
+            <!-- Feed Stream -->
+            <div id="postsList" class="posts-stream"></div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="wellness.html">Wellness</a>
+                <a href="study tools.html">Study Tools</a>
+                <a href="about us.html">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="about us.html">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus Inc. All rights reserved.</p>
+            <p>[ DEV Achintha Kaushalya ]</p>
+        </div>
+    </footer>
+
+    <script src="community.js"></script>
+
+</body>
+
+</html>

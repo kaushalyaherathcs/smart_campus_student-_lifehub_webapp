@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnityCampus — Industrial Academic Platform</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+    
+    <!-- Google Fonts: Space Grotesk, JetBrains Mono & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dot-matrix-bg">
+
+   
+    <div id="loadingOverlay" class="loading-overlay">
+        <svg class="loader-icon" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M178.4 251.8l-145 144c-1.9 1.9-4.6 2.8-7.4 2.8s-4.6-.9-7.4-2.8L2.8 380.1c-1.9-1.9-2.8-4.6-2.8-7.4s.9-4.6 2.8-7.4l121.7-121.7L3.7 122.7c-1.9-1.9-2.8-4.6-2.8-7.4s.9-4.6 2.8-7.4L19.5 92c1.9-1.9 4.6-2.8 7.4-2.8s4.6.9 7.4 2.8l144 145.9c1.9 1.9 2.8 4.6 2.8 7.4.1 1.9-.8 4.7-2.7 6.5M512 393.1v19.5c0 2.8-.9 5.6-2.8 7.4-1.9 1.9-4.6 2.8-7.4 2.8H204.4c-2.8 0-5.6-.9-7.4-2.8-1.9-1.9-2.8-4.6-2.8-7.4v-19.5c0-2.8.9-5.6 2.8-7.4 1.9-1.9 4.6-2.8 7.4-2.8h297.4c2.8 0 5.6.9 7.4 2.8 1.9 1.8 2.8 4.6 2.8 7.4"/>
+        </svg>
+        <div class="progress-track">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="studytools.html">Study tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li>
+                    <a href="#notice" class="nav-status-pill">
+                        <span class="dot"></span>
+                        <span>Open to Campus ↗</span>
+                    </a>
+                </li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    
+    <section class="custom-card grid-line-bg">
+        <div class="hero-inner-container">
+            <div class="hero-meta-tag">— ACADEMIC × PLATFORM</div>
+            
+            <div class="hero-main-grid">
+                <div>
+                    <h1 class="hero-text">
+                        Keep learning <br>On Track <span class="year-badge">('26)</span>
+                    </h1>
+                    <p class="des">
+                        Effortlessly manage your learning journey. Elevate your skillset with cutting-edge insights designed for high-impact growth.
+                    </p>
+                    <div class="hero-cta-wrap">
+                        <a href="#planner" class="button1">[ Get Started ] ↗</a>
+                        <span class="button-des">plan your day ..</span>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="boxes-wrapper">
+                <div class="box box-1">
+                    <div class="com-con">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <p class="tag">Team Communication</p>
+                    </div>
+                    <p class="desc-card">Master clear, persuasive communication techniques to inspire your team, resolve conflicts, and drive collaboration.</p>
+                </div>
+
+                <div class="box box-2">
+                    <div class="growth-con">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <p class="tag">Performance</p>
+                    </div>
+                    <p class="desc-card">Develop new skills to deliver constructive feedback, set clear goals, and unlock your team's full potential.</p>
+                </div>
+
+                <div class="box box-3">
+                    <div class="plan-con">
+                        <div class="icon-circle">
+                            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <p class="tag">Strategic Planning</p>
+                    </div>
+                    <p class="desc-card">Learn the fundamentals of effective leadership and develop your managerial skills.</p>
+                </div>
+            </div>
+
+            <div class="hero-action-bottom">
+                <div class="readmore">
+                    <a href="#notice" class="arrow">
+                        <span>READ MORE</span>
+                        <span style="font-size: 14px; margin-top: 2px;">↓</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="container2">
+        <div class="vision-header">
+            <h2 class="vision">Our Vision</h2>
+            <span class="vision-subtag">• (ABOUT)</span>
+        </div>
+
+        <div class="vision-content">
+            <div class="vision-left">
+                <p class="description">
+                    <strong>"Student life is complicated. We made it simple."</strong><br><br>
+                    Managing university life means tracking assignments, staying connected, maintaining wellness and finding resources — all at the same time. We are the platform that handles it all, built by students, for students.
+                </p>
+
+                <div class="container3">
+                    <div class="container4">
+                        <p class="student">Student</p>
+                        <p class="student1"><span id="Counter">0</span>+</p>
+                    </div>
+                    <div class="container4">
+                        <p class="features">Features</p>
+                        <p class="features1">+<span id="FeatureCounter">0</span></p>
+                    </div>
+                    <div class="container4">
+                        <p class="student">Free Access</p>
+                        <p class="free1"><span id="spanCounter">0</span>%</p>
+                    </div>
+                    <div class="container4">
+                        <p class="available">Available</p>
+                        <p class="available1">24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vision-image-container">
+                <img src="images/vision1.png" alt="Campus Vision" class="vision-img" onerror="this.src='https://placehold.co/600x800/18181c/a1a1aa?text=UnityCampus+Vision'">
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. NOTICE BOARD SECTION -->
+    <section class="notice-page" id="notice">
+        <div class="notice-inner">
+            <div class="notice-header">
+                <h2 class="notice-title">Notice Board</h2>
+                <p class="notice-sub">/// stay updated with latest announcements</p>
+            </div>
+
+            <div class="notice-layout">
+                <div class="notices-left">
+                    <div id="noticesList"></div>
+                </div>
+
+                <div class="notices-right">
+                    <div class="notice-form-card">
+                        <p class="form-title" id="formTitle">[ Post a Notice ]</p>
+                        <input type="text" id="noticeTitle" placeholder="Title..." class="notice-input">
+                        <textarea id="noticeContent" placeholder="Description..." class="notice-input notice-textarea"></textarea>
+                        <button class="notice-post-btn" id="noticeSubmitBtn" onclick="submitNotice()">Post Announcement →</button>
+                        <button class="notice-cancel-btn" id="noticeCancelBtn" onclick="cancelEdit()" style="display:none;">Cancel Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--FEATURES GRID SECTION -->
+    <section class="container10">
+        <h2 class="text2">Our Features</h2>
+
+        <div class="featuresgrid">
+            <div class="card2">
+                <h3 class="cardtext">Announcements</h3>
+                <p class="cardtext2">Stay updated with university news, exam dates and important notices.</p>
+            </div>
+
+            <div class="card2">
+                <h3 class="cardtext">Resources</h3>
+                <p class="cardtext2">Access study materials, FAQs and useful links anytime.</p>
+            </div>
+
+            <div class="card2">
+                <h3 class="cardtext">Wellness</h3>
+                <p class="cardtext2">Track your mood and get tips for a balanced student life.</p>
+            </div>
+
+            <div class="card2">
+                <h3 class="cardtext">Study Tools</h3>
+                <p class="cardtext2">Pomodoro timer, grade calculator and quick notes in one place.</p>
+            </div>
+
+            <div class="card2">
+                <h3 class="cardtext">Planner</h3>
+                <p class="cardtext2">Track assignments, deadlines and manage your study schedule.</p>
+            </div>
+
+            <div class="card2">
+                <h3 class="cardtext">Student Community</h3>
+                <p class="cardtext2">Connect with new students, ask questions and share tips through discussions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="#planner">Planner</a>
+                <a href="#community">Community</a>
+                <a href="#resources">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="#wellness">Wellness</a>
+                <a href="#study-tools">Study Tools</a>
+                <a href="#about">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="mailto:contact@unitycampus.edu">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus. All rights reserved to the author.</p>
+            <p>[ DEV Achintha Kaushalya ]</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
