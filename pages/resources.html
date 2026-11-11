@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources — UnityCampus</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
+    <link rel="stylesheet" href="resources.css">
+</head>
+
+<body class="dot-matrix-bg">
+
+    <!-- 1. NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="study tools.html">Study tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. IMAGE BANNER SECTION -->
+    <div class="com-img">
+        <div class="banner-overlay">
+            <h1 class="resources-title">RESOURCES</h1>
+            <p class="resources-sub">everything you need in one place</p>
+        </div>
+    </div>
+
+    <!-- 3. RESOURCES CONTENT SECTION -->
+    <section class="resources-page grid-line-bg">
+        <div class="resources-inner">
+
+            <!-- FAQ Section -->
+            <div class="resources-header">
+                <span class="resources-tag">— FREQUENTLY ASKED QUESTIONS</span>
+                <h2 class="section-title">Knowledge Base</h2>
+                <p class="resources-sub-lead">/// answers to common academic & technical queries</p>
+            </div>
+
+            <div id="faqApp" class="faq-card">
+                <p class="form-title">[ FAQ Directory ]</p>
+                <div class="faq-list">
+                    <div class="faq-item" v-for="(item, index) in faqs" :key="index">
+                        <div class="faq-question" @click="toggle(index)">
+                            <span class="faq-q-text">{{ item.question }}</span>
+                            <span class="faq-arrow" :class="{ open: item.open }">▼</span>
+                        </div>
+                        <div class="faq-answer" :class="{ open: item.open }">
+                            <p>{{ item.answer }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Useful Links Section -->
+            <div class="resources-header" style="margin-top: 60px;">
+                <span class="resources-tag">— EXTERNAL PORTALS & DOCS</span>
+                <h2 class="section-title">Useful Links</h2>
+                <p class="resources-sub-lead">/// direct access to university portals & development resources</p>
+            </div>
+
+            <div class="links-grid">
+                <a href="https://online.ou.ac.lk" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="school.png" class="icon" alt="Portal Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">OUSL Student Portal</p>
+                        <p class="link-desc">Access your student account, results, and registrations</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+
+                <a href="https://library.ou.ac.lk" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="book1.png" class="icon" alt="Library Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">OUSL Library</p>
+                        <p class="link-desc">Digital books, academic journals, and research repositories</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+
+                <a href="https://lms.ou.ac.lk" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="laptop.png" class="icon" alt="LMS Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">OUSL LMS</p>
+                        <p class="link-desc">Online course materials, lecture notes, and submissions</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+
+                <a href="https://www.ou.ac.lk" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="internet.png" class="icon" alt="Web Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">OUSL Official Website</p>
+                        <p class="link-desc">University announcements, events, and official news</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+
+                <a href="https://developer.mozilla.org" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="wrench.png" class="icon" alt="MDN Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">MDN Web Docs</p>
+                        <p class="link-desc">Complete HTML, CSS, JavaScript web reference</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+
+                <a href="https://vuejs.org" target="_blank" class="link-card">
+                    <div class="link-icon-wrap">
+                        <img src="thunder.png" class="icon" alt="Vue Icon" onerror="this.style.display='none'">
+                    </div>
+                    <div class="link-info">
+                        <p class="link-name">Vue.js Docs</p>
+                        <p class="link-desc">Official documentation for Vue.js framework</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="wellness.html">Wellness</a>
+                <a href="study tools.html">Study Tools</a>
+                <a href="about us.html">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="about us.html">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus Inc. All rights reserved.</p>
+            <p>[ EEI3346 Mini Project ]</p>
+        </div>
+    </footer>
+
+    <script src="resources.js"></script>
+</body>
+
+</html>

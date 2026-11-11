@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="512" height="512">
-<svg viewBox="0 0 24 24" class="mood-svg" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M8 9.5l2.5 1M16 9.5l-2.5 1" stroke-linecap="round" />
-                            <circle cx="9" cy="11" r="1" fill="currentColor" stroke="none" />
-                            <circle cx="15" cy="11" r="1" fill="currentColor" stroke="none" />
-                            <path d="M8 16.5s1.5-2 4-2 4 2 4 2" stroke-linecap="round" />
-                        </svg>

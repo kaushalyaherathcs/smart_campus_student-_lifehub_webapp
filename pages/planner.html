@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner — UnityCampus</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
+    <link rel="stylesheet" href="planner.css">
+</head>
+
+<body class="dot-matrix-bg">
+
+    <!-- 1. NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="planner.html" class="active">Planner</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="study tools.html">Study tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. IMAGE BANNER SECTION -->
+    <div class="com-img">
+        <div class="banner-overlay">
+            <h1 class="planner-title">PLANNER</h1>
+            <p class="planner-sub">everything you need in one place</p>
+        </div>
+    </div>
+
+    <!-- 3. PLANNER CONTENT SECTION -->
+    <section class="planner-page grid-line-bg">
+        <div class="planner-inner" id="plannerApp">
+
+            <div class="planner-header">
+                <span class="planner-tag">— TASK MANAGEMENT</span>
+                <p class="planner-sub-lead">/// stay on top of your assignments and deadlines</p>
+            </div>
+
+            <!-- Progress Overview Card -->
+            <div class="progress-card">
+                <p class="form-title">[ Task Completion Progress ]</p>
+                <div class="progress-wrap">
+                    <div class="progress-label">
+                        <span>Tasks Completed</span>
+                        <span>{{ progressPercent }}%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" :style="{ width: progressPercent + '%' }"></div>
+                    </div>
+                </div>
+                <div class="progress-stats">
+                    <div class="prog-stat">
+                        <p class="prog-num">{{ tasks.length }}</p>
+                        <p class="prog-label">Total</p>
+                    </div>
+                    <div class="prog-stat">
+                        <p class="prog-num">{{ completedCount }}</p>
+                        <p class="prog-label">Done</p>
+                    </div>
+                    <div class="prog-stat">
+                        <p class="prog-num">{{ tasks.length - completedCount }}</p>
+                        <p class="prog-label">Pending</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Task Form Card -->
+            <div class="task-form-card">
+                <p class="form-title">[ Add New Task ]</p>
+                <input type="text" v-model="taskName" placeholder="Task description..." class="task-input" @keypress.enter="addTask">
+                <div class="form-row">
+                    <input type="date" v-model="taskDate" class="task-input">
+                    <select v-model="taskTag" class="task-input select-input">
+                        <option value="Study">Study</option>
+                        <option value="Deadline">Deadline</option>
+                        <option value="Event">Event</option>
+                        <option value="Personal">Personal</option>
+                    </select>
+                </div>
+                <button class="add-task-btn" @click="addTask">
+                    + Add Task →
+                </button>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-row">
+                <button class="filter-btn" :class="{ active: currentFilter === 'all' }" @click="currentFilter = 'all'">All</button>
+                <button class="filter-btn" :class="{ active: currentFilter === 'Study' }" @click="currentFilter = 'Study'">Study</button>
+                <button class="filter-btn" :class="{ active: currentFilter === 'Deadline' }" @click="currentFilter = 'Deadline'">Deadline</button>
+                <button class="filter-btn" :class="{ active: currentFilter === 'Event' }" @click="currentFilter = 'Event'">Event</button>
+                <button class="filter-btn" :class="{ active: currentFilter === 'Personal' }" @click="currentFilter = 'Personal'">Personal</button>
+            </div>
+
+            <!-- Task List Card -->
+            <div class="task-list-card">
+                <div class="task-list-header">
+                    <p class="form-title">[ Tasks Stream ]</p>
+                    <p class="task-count">{{ filteredTasks.length }} tasks listed</p>
+                </div>
+
+                <div class="empty-state" v-if="filteredTasks.length === 0">
+                    <p>! NO TASKS FOUND</p>
+                    <p class="empty-sub">Add a task above to keep track of your schedule.</p>
+                </div>
+
+                <div class="task-item" v-for="(task, index) in filteredTasks" :key="index">
+                    <div class="task-checkbox" :class="{ checked: task.completed }" @click="toggleTask(index)">
+                        <span v-if="task.completed">✓</span>
+                    </div>
+                    <div class="task-info">
+                        <p class="task-name" :class="{ completed: task.completed }">
+                            {{ task.name }}
+                            <span class="task-tag" :class="'tag-' + task.tag.toLowerCase()">
+                                {{ task.tag }}
+                            </span>
+                        </p>
+                        <p class="task-meta">Due: {{ task.date || 'No date set' }}</p>
+                    </div>
+                    <button class="task-delete" @click="deleteTask(index)" title="Remove task">✕</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="wellness.html">Wellness</a>
+                <a href="study tools.html">Study Tools</a>
+                <a href="about us.html">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="about us.html">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus Inc. All rights reserved.</p>
+            <p>[ DEV Achintha Kaushalya ]</p>
+        </div>
+    </footer>
+
+    <script src="planner.js"></script>
+</body>
+
+</html>

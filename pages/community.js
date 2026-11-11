@@ -111,11 +111,11 @@ function renderPosts() {
             <p class="post-content">${escapeHTML(post.content)}</p>
             <div class="post-actions">
                 <button class="action-btn ${post.liked ? 'liked' : ''}" onclick="likePost(${post.id})">
-                    <span>▲ LIKE</span>
+                    <span>LIKE</span>
                     <span>(${post.likes})</span>
                 </button>
                 <button class="action-btn" onclick="toggleComments(${post.id})">
-                    <span>💬 COMMENTS</span>
+                    <span>COMMENTS</span>
                     <span>(${post.comments.length})</span>
                 </button>
             </div>

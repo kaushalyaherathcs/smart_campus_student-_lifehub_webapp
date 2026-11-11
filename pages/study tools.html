@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Tools — UnityCampus</title>
+    <link rel="icon" href="https://api.iconify.design/lucide:graduation-cap.svg?color=%23ff5500" type="image/svg+xml">
+    <link rel="stylesheet" href="wellness.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="studytools.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body class="dot-matrix-bg">
+
+    <!-- 1. NAVIGATION HEADER -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                Unity<span>Campus</span>
+            </a>
+
+            <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="study tools.html" class="active">Study Tools</a></li>
+                <li><a href="wellness.html">Wellness</a></li>
+                <li><a href="about us.html">About Us</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                        <svg id="sunIcon" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg id="moonIcon" viewBox="0 0 24 24" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 2. IMAGE BANNER SECTION -->
+    <div class="com-img">
+        <div class="banner-overlay">
+            <h1 class="wellness-title">STUDY TOOLS</h1>
+            <p class="wellness-sub">smart tools for student life</p>
+        </div>
+    </div>
+
+    <!-- 3. CONTENT SECTION -->
+    <section class="wellness-page grid-line-bg">
+        <div class="wellness-inner">
+
+            <div class="wellness-header">
+                <span class="wellness-tag">— ACADEMIC SUITE</span>
+                <p class="wellness-sub-lead">/// organize grades, notes, and personal expenses effortlessly</p>
+            </div>
+
+            <!-- Two-Column Grid for Grade Calculator & Quick Notes -->
+            <div class="wellness-grid">
+
+                <!-- Grade Calculator Card -->
+                <div class="wellness-card">
+                    <p class="form-title">[ Grade Calculator ]</p>
+                    
+                    <div id="gradeRows" class="grade-rows-container">
+                        <div class="grade-row">
+                            <input type="text" placeholder="Subject..." class="post-input grade-subject">
+                            <input type="number" placeholder="Marks" min="0" max="100" class="post-input grade-marks">
+                            <input type="number" placeholder="Credits" min="1" max="6" class="post-input grade-credits">
+                            <button class="del-row-btn" onclick="deleteGradeRow(this)">×</button>
+                        </div>
+                    </div>
+
+                    <div class="grade-action-btns">
+                        <button class="wellness-btn outline" onclick="addGradeRow()" style="width:100%;">
+                            + Add Subject
+                        </button>
+                        <button class="wellness-btn" onclick="calGrades()" style="width:100%;">
+                            Calculate →
+                        </button>
+                    </div>
+
+                    <div class="grade-result" id="gradeResult">
+                        Enter subject details to compute GPA
+                    </div>
+                </div>
+
+                <!-- Quick Notes Card (Vue Powered) -->
+                <div id="app">
+                    <div class="wellness-card">
+                        <p class="form-title">[ Quick Notes ]</p>
+
+                        <div class="notes-form">
+                            <input type="text" v-model="newSubject" placeholder="Subject tag..." class="post-input">
+                            <textarea v-model="newContent" placeholder="Write your note..." class="post-input notes-textarea"></textarea>
+
+                            <button class="wellness-btn" @click="addNote" style="width:100%;">
+                                Save Note →
+                            </button>
+                        </div>
+
+                        <div class="notes-list" id="notesList">
+                            <div v-if="notes.length === 0" class="notes-empty">
+                                No notes yet. Add one above!
+                            </div>
+                            <div v-else v-for="note in notes" :key="note.id" class="note-item">
+                                <div class="note-header">
+                                    <span class="note-tag">{{ note.subject }}</span>
+                                    <button class="note-del" @click="deleteNote(note.id)">×</button>
+                                </div>
+                                <p class="note-text">{{ note.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Full-Width Budget Tracker Card -->
+            <div class="wellness-card full-width-card">
+                <p class="form-title">[ Budget Tracker ]</p>
+
+                <div class="budget-layout">
+                    <div class="budget-form">
+                        <input type="text" id="budgetDesc" placeholder="Description..." class="post-input">
+                        <input type="number" id="budgetAmount" placeholder="Amount (LKR)" class="post-input">
+                        
+                        <div class="budget-type-row">
+                            <button class="type-btn active" id="incomeBtn" onclick="setBudgetType('income')">
+                                + Income
+                            </button>
+                            <button class="type-btn expense" id="expenseBtn" onclick="setBudgetType('expense')">
+                                - Expense
+                            </button>
+                        </div>
+                        
+                        <button class="wellness-btn" onclick="addBudgetEntry()" style="width:100%;">
+                            Add Entry →
+                        </button>
+                    </div>
+
+                    <div class="budget-summary">
+                        <div class="budget-stat income-stat">
+                            <p class="budget-stat-label">Total Income</p>
+                            <p class="budget-stat-num income-num" id="totalIncome">LKR 0</p>
+                        </div>
+                        <div class="budget-stat expense-stat">
+                            <p class="budget-stat-label">Total Expenses</p>
+                            <p class="budget-stat-num expense-num" id="totalExpense">LKR 0</p>
+                        </div>
+                        <div class="budget-stat balance-stat">
+                            <p class="budget-stat-label">Balance</p>
+                            <p class="budget-stat-num" id="totalBalance">LKR 0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="budget-entries" id="budgetEntries"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+        <div class="top">
+            <div>
+                <p class="logo">Unity<span>Campus</span>.</p>
+                <p class="footer-tagline">learn. stream. together.</p>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Pages</p>
+                <a href="index.html">Home</a>
+                <a href="planner.html">Planner</a>
+                <a href="community.html">Community</a>
+                <a href="resources.html">Resources</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">More</p>
+                <a href="wellness.html">Wellness</a>
+                <a href="study tools.html">Study Tools</a>
+                <a href="about us.html">About Us</a>
+            </div>
+            <div class="footercol">
+                <p class="footerheading">Contact</p>
+                <a href="about us.html">Academic Portal</a>
+            </div>
+        </div>
+
+        <div class="footerbottom">
+            <p>© 2026 UnityCampus Inc. All rights reserved.</p>
+            <p>[ DEV Achintha Kaushalya ]</p>
+        </div>
+    </footer>
+
+    <script src="studytools.js"></script>
+</body>
+
+</html>

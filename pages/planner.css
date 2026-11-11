@@ -192,11 +192,11 @@ body {
     background-color: var(--text-primary);
 }
 
-/* --------------- BANNER SECTION (MATCHES REFERENCE IMAGE) --------------- */
+/* --------------- BANNER SECTION --------------- */
 .com-img {
     width: 100%;
-    min-height: 260px;
-    background-image: url("wellness.png");
+    min-height: 300px;
+    background-image: url("images/planner.png");
     background-size: cover;
     background-position: center;
     border-bottom: 1px solid var(--border);
@@ -222,10 +222,9 @@ body {
     text-align: center;
     background: transparent;
     padding: 0;
-    border-radius: 0;
 }
 
-.wellness-title {
+.planner-title {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(3rem, 7vw, 4.5rem);
     font-weight: 800;
@@ -236,7 +235,7 @@ body {
     line-height: 1.1;
 }
 
-.wellness-sub {
+.planner-sub {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.95rem;
     color: #FAFAFA;
@@ -246,24 +245,24 @@ body {
 }
 
 /* --------------- CONTENT LAYOUT --------------- */
-.wellness-page {
+.planner-page {
     padding: 40px 2rem 100px;
     min-height: calc(100vh - 330px);
     border-bottom: 1px solid var(--border);
 }
 
-.wellness-inner {
+.planner-inner {
     max-width: 900px;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-.wellness-header {
+.planner-header {
     margin-bottom: 40px;
 }
 
-.wellness-tag {
+.planner-tag {
     font-family: 'JetBrains Mono', monospace;
     color: var(--accent);
     font-size: 0.85rem;
@@ -275,7 +274,7 @@ body {
 }
 
 
-.wellness-sub-lead {
+.planner-sub-lead {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
     color: var(--text-tertiary);
@@ -292,7 +291,8 @@ body {
     margin-bottom: 18px;
 }
 
-.wellness-card {
+/* --------------- PROGRESS CARD --------------- */
+.progress-card {
     background: var(--surface);
     border: 1px solid var(--border);
     padding: 28px;
@@ -300,359 +300,278 @@ body {
     transition: border-color 0.2s;
 }
 
-.wellness-card:hover {
+.progress-card:hover {
     border-color: var(--border-strong);
 }
 
-/* --------------- MOOD TRACKER --------------- */
-.mood-btns {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 12px;
+.progress-wrap {
+    margin-bottom: 20px;
 }
 
-.mood-btn {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 16px 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-    flex: 1;
-    min-width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.mood-btn p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-}
-
-.mood-svg {
-    width: 32px;
-    height: 32px;
-    color: var(--text-tertiary);
-    transition: color 0.2s;
-}
-
-.mood-btn:hover,
-.mood-btn.selected {
-    border-color: var(--accent);
-    background: var(--accent-glow);
-    transform: translateY(-2px);
-}
-
-.mood-btn:hover .mood-svg,
-.mood-btn.selected .mood-svg,
-.mood-btn:hover p,
-.mood-btn.selected p {
-    color: var(--accent);
-}
-
-.mood-saved {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin-top: 16px;
-    text-align: center;
-    min-height: 20px;
-}
-
-.mood-chart {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    margin-top: 16px;
-}
-
-.chart-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.chart-mood-dot {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    transition: transform 0.2s;
-    cursor: pointer;
-}
-
-.chart-mood-dot:hover {
-    transform: scale(1.2);
-}
-
-.chart-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-}
-
-.chart-empty {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1px dashed var(--border-strong);
-}
-
-/* --------------- SLEEP & TIMER GRID --------------- */
-.wellness-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.sleep-input-row {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.sleep-field {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.sleep-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    letter-spacing: 0.05em;
-}
-
-.time-input {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text-primary);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    padding: 10px 12px;
-    outline: none;
-    transition: border 0.2s;
-    width: 100%;
-}
-
-.time-input:focus {
-    border-color: var(--accent);
-}
-
-.sleep-result {
-    margin-top: 16px;
-    padding: 12px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-align: center;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.sleep-history {
-    margin-top: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    max-height: 120px;
-    overflow-y: auto;
-}
-
-.sleep-entry {
+.progress-label {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 6px;
     background: var(--bg);
     border: 1px solid var(--border);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+    overflow: hidden;
 }
 
-.sleep-entry span:last-child {
-    font-weight: 700;
-    color: var(--accent);
-}
-
-/* --------------- TIMER --------------- */
-.timer-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.timer-modes {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-}
-
-.mode-btn {
-    flex: 1;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text-tertiary);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    padding: 8px 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-transform: uppercase;
-}
-
-.mode-btn:hover,
-.mode-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #FFFFFF;
-}
-
-.timer-display {
-    position: relative;
-    width: 140px;
-    height: 140px;
-}
-
-.timer-ring {
-    width: 100%;
+.progress-fill {
     height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.4s var(--transition-fast);
 }
 
-.timer-time {
-    position: absolute;
-    inset: 0;
+.progress-stats {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+}
+
+.prog-stat {
+    text-align: center;
+}
+
+.prog-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
     font-size: 1.8rem;
+    font-weight: 800;
     color: var(--text-primary);
 }
 
-.timer-mode-label {
+.prog-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary);
     text-transform: uppercase;
 }
 
-.timer-btns {
-    display: flex;
+/* --------------- FORM & INPUTS --------------- */
+.task-form-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+}
+
+.task-form-card:hover {
+    border-color: var(--border-strong);
+}
+
+.task-input {
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding: 12px 14px;
+    outline: none;
+    transition: border 0.2s;
+    margin-bottom: 12px;
+}
+
+.select-input {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.task-input:focus {
+    border-color: var(--accent);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-.timer-sessions {
-    text-align: center;
+.add-task-btn {
     width: 100%;
-}
-
-.sessions-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    margin-bottom: 8px;
-    letter-spacing: 0.05em;
-}
-
-.session-dots {
-    display: flex;
-    gap: 6px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.session-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-}
-
-.wellness-btn {
     background: var(--accent);
     border: 1px solid var(--accent);
     color: #FFFFFF;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 10px 20px;
+    padding: 12px 24px;
     cursor: pointer;
     transition: all 0.2s var(--transition-fast);
+    margin-top: 4px;
 }
 
-.wellness-btn:hover {
+.add-task-btn:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
 }
 
-.wellness-btn.outline {
-    background: transparent;
+/* --------------- FILTER BUTTONS --------------- */
+.filter-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.filter-btn {
+    background: var(--surface);
     border: 1px solid var(--border);
-    color: var(--text-primary);
-}
-
-.wellness-btn.outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-/* --------------- TIPS GRID --------------- */
-.tips-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 12px;
-}
-
-.tip-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 20px;
+    padding: 8px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    cursor: pointer;
     transition: all 0.2s;
 }
 
-.tip-card:hover {
-    transform: translateY(-3px);
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #FFFFFF;
+}
+
+/* --------------- TASK LIST --------------- */
+.task-list-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 28px;
+}
+
+.task-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.task-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.task-item:hover {
+    border-color: var(--border-strong);
+}
+
+.task-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    transition: all 0.2s;
+}
+
+.task-checkbox.checked {
+    background: var(--accent-glow);
     border-color: var(--accent);
 }
 
-.tip-icon {
-    font-size: 24px;
-    display: block;
-    margin-bottom: 10px;
+.task-info {
+    flex: 1;
 }
 
-.tip-title {
+.task-name {
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
     font-size: 0.95rem;
-    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 6px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.tip-desc {
-    font-family: 'Inter', sans-serif;
+.task-name.completed {
+    text-decoration: line-through;
+    color: var(--text-tertiary);
+}
+
+.task-meta {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.task-tag {
+    padding: 2px 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.tag-study { color: #60A5FA; border-color: rgba(96, 165, 250, 0.3); }
+.tag-deadline { color: #F87171; border-color: rgba(248, 113, 113, 0.3); }
+.tag-event { color: #34D399; border-color: rgba(52, 211, 153, 0.3); }
+.tag-personal { color: #FBBF24; border-color: rgba(251, 191, 36, 0.3); }
+
+.task-delete {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 4px 8px;
+    transition: color 0.2s;
+}
+
+.task-delete:hover {
+    color: var(--accent);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    border: 1px dashed var(--border);
+    color: var(--text-tertiary);
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
+}
+
+.empty-sub {
+    font-size: 0.75rem;
+    margin-top: 4px;
 }
 
 /* --------------- FOOTER --------------- */
@@ -730,16 +649,6 @@ body {
 }
 
 /* --------------- RESPONSIVE LAYOUT --------------- */
-@media (max-width: 900px) {
-    .wellness-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .tips-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 768px) {
     .navbar-menu {
         display: none;
@@ -763,7 +672,7 @@ body {
         display: flex;
     }
 
-    .tips-grid {
+    .form-row {
         grid-template-columns: 1fr;
     }
 
